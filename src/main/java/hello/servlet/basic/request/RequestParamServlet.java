@@ -19,14 +19,15 @@ public class RequestParamServlet extends HttpServlet {
         String username = request.getParameter("username");
         String age = request.getParameter("age");
 
-        System.out.println(username);
-        System.out.println(age);
+        System.out.println("사용자 이름:" + username);
+        System.out.println("사용자 나이:" + age);
 
+        System.out.println("Iterator 돌려서 확인하기");
         String[] usernames = request.getParameterValues("username");
         for(String name : usernames){
             System.out.println(name);
         }
-
+        response.getWriter().write("Redirect to page");
 
     }
 }
