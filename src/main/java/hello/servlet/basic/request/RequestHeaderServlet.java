@@ -15,6 +15,7 @@ public class RequestHeaderServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         printHeader(req);
+        printHeaderUtils(req);
 
     }
     private void printHeader(HttpServletRequest req){
@@ -22,9 +23,11 @@ public class RequestHeaderServlet extends HttpServlet {
         while(headerNames.hasMoreElements()){
             String headerName=headerNames.nextElement();
             System.out.println(headerName);
-
         }
-
-
+    }
+    private void printHeaderUtils(HttpServletRequest req){
+        System.out.println(req.getContentType());
+        System.out.println(req.getContentLength());
+        System.out.println(req.getCharacterEncoding());
     }
 }
