@@ -2,6 +2,7 @@ package hello.servlet.basic.request;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import hello.servlet.basic.HelloData;
+import hello.servlet.basic.Student;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.ServletInputStream;
 import jakarta.servlet.annotation.WebServlet;
@@ -22,10 +23,12 @@ public class RequestBodyJsonServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ServletInputStream inputStream = request.getInputStream();
-        String messageBody = StreamUtils.copyToString(inputStream, StandardCharsets.UTF_8);
-        System.out.println(messageBody);
-        HelloData helloData = objectMapper.readValue(messageBody,HelloData.class);
-        System.out.println(helloData.getAge());
-        System.out.println(helloData.getUsername());
+        String messageBody = StreamUtils.copyToString(inputStream,StandardCharsets.UTF_8);
+        Student student = objectMapper.readValue(messageBody, Student.class);
+        System.out.println(student.getName());
+        System.out.println(student.getClassname());
+        System.out.println(student.getHeight());
+        System.out.println(student.getName());
+
     }
 }
