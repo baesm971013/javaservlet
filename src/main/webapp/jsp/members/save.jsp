@@ -9,7 +9,6 @@
   int age = Integer.parseInt(request.getParameter("age"));
   Member member = new Member(username,age);
   System.out.println(member);
-
   memberRepository.save(member);
 
 
@@ -20,15 +19,3 @@
 <head>
     <title>Title</title>
 </head>
-<body>
-성공
-
-<ul>
-  <li>id = <%=member.getId()%></li>
-  <li>id = <%=member.getUsername()%></li>
-  <li>id = <%=member.getAge()%></li>
-</ul>
-
-<a href="/index.html">main</a>
-</body>
-</html>
