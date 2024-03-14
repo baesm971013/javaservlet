@@ -26,10 +26,12 @@ public class FrontControllerServletV2 extends HttpServlet {
         controllerMap.put("/front-controller/v2/members/new-form", new MemberFormControllerV2());
         controllerMap.put("/front-controller/v2/members/save", new MemberSaveControllerV2());
         controllerMap.put("/front-controller/v2/members", new MemberListControllerV2());
+        
     }
 
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         String requestUri = request.getRequestURI();
         ControllerV2 controller = controllerMap.get(requestUri);
         if (controller==null){
@@ -37,5 +39,6 @@ public class FrontControllerServletV2 extends HttpServlet {
         }
         MyView myView = controller.process(request,response);
         myView.render(request,response);
+
     }
 }
