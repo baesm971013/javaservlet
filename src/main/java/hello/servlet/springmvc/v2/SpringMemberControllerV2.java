@@ -20,6 +20,7 @@ public class SpringMemberControllerV2 {
         return new ModelAndView("new-form");
     }
 
+
     @RequestMapping("/save")
     public ModelAndView save(HttpServletRequest request, HttpServletResponse response){
         String username = request.getParameter("username");
@@ -29,14 +30,14 @@ public class SpringMemberControllerV2 {
         ModelAndView mv = new ModelAndView("save-result");
         mv.addObject("member",member);
         return mv;
-
     }
+
+
     @RequestMapping("")
     public ModelAndView list(){
         List<Member> members = memberRepository.findAll();
         ModelAndView mv = new ModelAndView("members");
         mv.addObject("members",members);
-
         return mv;
     }
 }
